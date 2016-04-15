@@ -10,6 +10,8 @@ namespace TestInsight.Models
         public string Email { get; set; }
     }
 
+    public class mytestClassOpen { }
+
     public class ExternalLoginListViewModel
     {
         public string ReturnUrl { get; set; }
