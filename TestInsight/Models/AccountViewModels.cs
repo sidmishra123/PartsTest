@@ -15,6 +15,11 @@ namespace TestInsight.Models
         public string ReturnUrl { get; set; }
     }
 
+    public class mytest
+    {
+
+    }
+
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
