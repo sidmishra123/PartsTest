@@ -15,10 +15,12 @@ namespace TestInsight.Models
         public string ReturnUrl { get; set; }
     }
 
-    public class mytestclassmaster
+    public class mytestclassmastersidtsetbranch
     {
 
     }
+
+    public class sidbranch { }
 
     public class SendCodeViewModel
     {
