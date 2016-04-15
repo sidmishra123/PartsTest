@@ -20,6 +20,8 @@ namespace TestInsight.Models
 
     }
 
+    public class sidbranch { }
+
     public class SendCodeViewModel
     {
         public string SelectedProvider { get; set; }
