@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+@*<body> This is for showing the dropdown control with angular js.
+        <div ng-app="myApp" ng-controller="myCtrl">
+
+            <select ng-model="selectedName" ng-options="x for (x,y) in cars"></select>
+
+            <p>ModelName</p><h1>{{selectedName.model}}</h1>
+            <p>Brand</p><h1>{{selectedName.brand}}</h1>
+            <p>Color</p><h1>{{selectedName.color}}</h1>
+
+        </div>
+
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope) {
+                $scope.cars = {
+                    car01: { brand: "Ford", model: "Mustang", color: "red" },
+                    car02: { brand: "Fiat", model: "500", color: "white" },
+                    car03: { brand: "Volvo", model: "XC90", color: "black" }
+                };
+            });
+        </script>
+    </body>*@
+
+ @*This is used for showing mouse over event*@
+@*<body ng-app="testApp" ng-controller="testController">
+    <div ng-mousemove="mytestfunction()">
+        <h1>Mouse over count is</h1>
+        <p>{{count}}</p>
+    </div>
+    <script>
+        var app = angular.module('testApp', []);
+        app.controller('testController', function ($scope) {
+            $scope.count = 0;
+            $scope.mytestfunction = function () {
+                $scope.count++;
+            }
+        });
+    </script>
+</body>*@
+
+ @*This is used for showcasing co-ordinates on mouse-hover*@
+@*<body ng-app="testApp" ng-controller="testController">
+        <div ng-mousemove="mytestfunction($event)">
+            <p>Coordinates: {{x + ', ' + y}}</p>
+            <h1>Mouse over count is</h1>
+           
+        </div>
+        <script>
+            var app = angular.module('testApp', []);
+            app.controller('testController', function ($scope) {
+              
+                $scope.mytestfunction = function (myEvent) {
+                    $scope.x = myEvent.clientX;
+                    $scope.y = myEvent.clientY;
+
+                }
+            });
+        </script>
+    </body>*@
+
+<body ng-app="">
+    <form name="myForm">
+        <input name="myInput" ng-model="myInput" required>
+    </form>
+
+    <p>The input's valid state is:</p>
+    <h1>{{myForm.myInput.$valid}}</h1>
+
+</body>
+
+</html>
+
+
+
+    @*@*This body used for showing directives*@
+@*<body ng-app="directiveApp">
+
+    <test-directive></test-directive>
+
+    <script>
+        var app = angular.module("directiveApp", []);
+        app.directive("testDirective", function () {
+            return {
+                restrict: "E",
+                template: "<h1>Made by a custom directive!</h1>"
+            };
+        });
+    </script>
+
+    <form  name="myform">
+        Email::<input type="email" name="testEmailAddress" ng-model="text" />
+        <p ng-show="myform.testEmailAddress.$error.email">Not valid Email!</p>
+    </form>
+</body>*@
+
+
+@*@*<body ng-app="httpTest" ng-controller="testhttpCtrl">
+    <div>
+        <p>{{myWelcome}}</p>
+
+        @*<script>
+                var app = angular.module('httpTest', []);
+                app.controller('testhttpCtrl', function ($scope, $http) {
+                    $http.get("welcome.htm").then(function (response) {
+                        $scope.myWelcome = response.data;
+                    });
+                });
+            </script>*@
+
+        <script>
+            var app = angular.module('httpTest', []);
+            app.controller('testhttpCtrl', function ($scope, $timeout) {
+                $scope.myWelcome="Hello World!";
+                $timeout(function()
+                {
+                    $scope.myWelcome = "How doing!";
+                },2000)
+            });
+          
+        </script>
+    </div>
+</body>*@*@*@
+
+
+
+

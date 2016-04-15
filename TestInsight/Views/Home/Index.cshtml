@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+    @*<div ng-app="">
+        <p>Name: <input type="text" ng-model="name"></p>
+        <p ng-bind="name"></p>
+    </div>*@
+    <div ng-app="testApp" ng-controller="testController" ng-init="getQty=;getPrice=">
+        <p>Enter Product Quantity: <input type="text" ng-model="getQty" /></p>
+        <p ng-bind="getQty"></p>
+        <p>Enter Product Price: <input type="text" ng-model="getPrice" /></p>
+        <p ng-bind="getPrice"></p>
+        <p>Total Qty:</p><p>{{getPrice + getQty}}</p>
+      <div ng-init="getQty=;getPrice=">
+            <p>Total Price</p>
+            <p>{{getQty * getPrice}}</p>
+      </div>
+
+        <div ng-init="person={getQty:'Siddhartaha',getPrice:'Doe'}">
+            <p>The Quantity using Object value:: {{person.getQty}}</p>
+        </div>
+
+        <div ng-init="productname=[
+         {Cname:'Jani',country:'Norway'},
+         {Cname:'Hege',country:'Sweden'},
+         {Cname:'Kai', country:'Denmark'}]">
+            <p><h4>This is example of ng-Repeat and basically used for accessing array elements like collection</h4></p>
+            <ul>
+                @*Example of filters added to directive as orderby and filter Filter*@
+                <li ng-repeat="x in productname | orderBy:'country' | filter : 'i' ">
+                
+                    {{x.Cname +', '+ x.country}}
+                </li>
+            </ul>
+        </div>
+      </div>
+
+
+    <script>
+        var myApp = angular.module('testApp', []);
+        myApp.controller('testController', function ($scope) {
+            $scope.getQty = "";
+            $scope.getPrice = "";
+        });
+    </script>
+
+</body>
+</html>
+
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@

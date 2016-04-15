@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+@*<body>
+    <div ng-app="testApp" ng-controller="testSortController"/>
+
+    <table border="1" width="100%">
+        <tr>
+            <th ng-click="orderByMe('name')">Name</th>
+            <th ng-click="orderByMe('country')">Country</th>
+        </tr>
+        <tr ng-repeat="x in names | orderBy:myOrderBy">
+            <td>{{x.name}}</td>
+            <td>{{x.country}}</td>
+        </tr>
+    </table>
+
+    <script>
+        angular.module('testApp', []).controller('testSortController', function ($scope) {
+        $scope.names = [
+          { name: 'Jani', country: 'Norway' },
+          { name: 'Carl', country: 'Sweden' },
+          { name: 'Margareth', country: 'England' },
+          { name: 'Hege', country: 'Norway' },
+          { name: 'Joe', country: 'Denmark' },
+          { name: 'Gustav', country: 'Sweden' },
+          { name: 'Birgit', country: 'Denmark' },
+          { name: 'Mary', country: 'England' },
+          { name: 'Kai', country: 'Norway' }
+        ];
+        $scope.orderByMe = function (x) {//function to get values available in x.
+            $scope.myOrderBy = x;
+        }
+    });
+    </script>
+</body>*@
+
+@*This is to display data from service using http*@
+
+@*<body>
+    <style>
+        table, th, td {
+            border: 1px solid grey;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+
+            table tr:nth-child(odd) {
+                background-color: #81F7D8;
+            }
+
+            table tr:nth-child(even) {
+                background-color: #ffffff;
+            }
+    </style>
+
+    <div ng-app="myApp" ng-controller="customersCtrl">
+
+        <table>
+            <tr ng-repeat="x in names | orderBy : 'Country'">
+                <td>{{ x.Name }}</td>
+                <td>{{ x.Country }}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('customersCtrl', function ($scope, $http) {
+            $http.get("http://www.w3schools.com/angular/customers.php")
+            .then(function (response) { $scope.names = response.data.records; });
+        });
+    </script>
+</body>*@
+
+
+
+   @*This Is used for showcasing the HttpGet Success and error.*@
+<body>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        <p>Today's welcome message is:</p>
+
+        <h1>{{myWelcome}}</h1>
+        <h1>{{content}}</h1>
+        <h1>{{statuscode}}</h1>
+        <h1>{{statustext}}</h1>
+
+    </div>
+
+    <p>The $http service requests a page on the server, and the response is set as the value of the "myWelcome" variable.</p>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope, $http) {
+            $http({
+                method: "GET",
+                url: "welcome.htm"
+            }).then(function mySucces(response) {
+                $scope.myWelcome = response.data;
+            }, function myError(response) {
+                $scope.myWelcome = response.statusText;
+                $scope.content = response.data;
+                $scope.statusText = response.statusText;
+                $scope.statuscode = response.status;
+            });
+        });
+    </script>
+
+</body>
+
+@*<body ng-app="getcustomer" ng-controller="getcustomerctrl">
+    <div>
+        <ul>
+            <li ng-repeat="x in mydata">
+                {{ x.Name + ', ' + x.Country }}
+            </li>
+         </ul>
+        <script>
+
+            var app = angular.module('getcustomer', []);
+            app.controller('getcustomerctrl', function ($scope, $http) {
+                $http.get("http://www.w3schools.com/angular/customers.php.").then(function (response) {
+                    $scope.myData = response.data.records;
+                });
+            });
+        </script>
+    </div>
+</body>*@
+</html>

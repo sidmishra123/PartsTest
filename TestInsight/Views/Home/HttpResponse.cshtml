@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<body>
+    <div ng-app="httpTest" ng-controller="testhttpCtrl">
+        <p>{{myResponse}}</p>
+
+        <script>
+            var myapp = angular.module('httpTest', []);
+            myapp.controller('testhttpCtrl',function($scope, $http)
+            {
+                $http.get("welcome.htm").then(function(response){
+                    $scope.myResponse = response.data;
+
+                });
+
+            }); 
+        </script>
+    </div>
+</body>
+</html>
+
