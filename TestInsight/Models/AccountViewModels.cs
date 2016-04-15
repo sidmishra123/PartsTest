@@ -15,7 +15,7 @@ namespace TestInsight.Models
         public string ReturnUrl { get; set; }
     }
 
-    public class mytestclassmaster
+    public class mytestclassmastersidtsetbranch
     {
 
     }
